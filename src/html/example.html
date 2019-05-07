@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>etribe modal</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
+    <style>
+        html, body {
+            height: 3000px;
+        }
+
+        .layerPopup {
+            z-index: 99;
+            width: 500px;
+            height: 700px;
+            background-color: blanchedalmond;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Etribe Modal Example</h1>
+    <div>
+        <ul style="list-style:none">
+            <h2>html</h2>
+            <li>
+                &lt;div class='layerPopupWrap'&gt;&lt;/div&gt;
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul style="list-style:none">
+            <h2>script</h2>
+            <li>var modal = new EtribeModal({</li>
+            <li style="margin-left:20px">'selector': document.querySelector('.layerPopupWrap')</li>
+            <li style="margin-left:20px">'scrollLock:
+                <select name="scrollLock" class="scrollLock">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+            </li>
+            <li style="margin-left:20px">'useDimm:
+                <select name="useDimm" class="useDimm">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+            </li>
+            <li style="margin-left:20px">'dimmCss':
+                <input type="text" name="dimmCss" size="40" class="dimmCss">
+            </li>
+            <li style="margin-left:20px">'selectDimm':
+                <input type="text" name="selectDimm" size="20" class="selectDimm">
+            </li>
+            <li>});</li>
+
+            <div style="position: fixed; z-index: 100;">
+                <div style="margin-top:20px">loader.show();</div>
+                <button class='initPopup' style="margin-top:20px">생성</button>
+                <div style="margin-top:20px">loader.hide();</div>
+                <button class='destroyPopup' style="margin-top:20px;">삭제</button>
+            </div>
+        </ul>
+    </div>
+    <div class='layerPopup' style="display:none; z-index: 100;"></div>
+
+    <!-- user dimm -->
+    <div class='dimm' style="width: 100%; height:100%; display:block; position: absolute; z-index: 99; top: 0; left: 0; display: none; background-color:black; opacity: 0.6;"></div>
+
+    <script type="text/javascript">
+        let el;
+        let _initBtn = document.querySelector('.initPopup');
+        let _destroyBtn = document.querySelector('.destroyPopup');
+
+        _initBtn.addEventListener('click', function () {
+            el = new EtribeModal({
+                'selector' : document.querySelector('.layerPopup'),
+                'scrollLock' : JSON.parse(document.querySelector('.scrollLock').value),
+                'useDimm' : JSON.parse(document.querySelector('.useDimm').value),
+                'dimmCss' : document.querySelector('.dimmCss').value,
+                'selectDimm' : eval(document.querySelector('.selectDimm').value),
+            });
+        });
+
+        _destroyBtn.addEventListener('click', function () {
+            el.destroy();
+        })
+    </script>
+</body>
+</html>
