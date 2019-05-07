@@ -1,10 +1,7 @@
 # [etribeModal](https://github.com/soyfully/modal-library)
 
 사용자가 지정한 모달 엘리먼트의 포지션을 뷰포트의 센터에 맞춰줄 수 있는 라이브러리입니다.
-<<<<<<< HEAD
 회사 재직 중 프로젝트의 원활한 진행을 위해 제작한 서브 프로젝트입니다.
-=======
->>>>>>> fb130e4... READ ME 수정
 
 ## Basic usage
 ```html
