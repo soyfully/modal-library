@@ -52,6 +52,12 @@
             <li style="margin-left:20px">'selectDimm':
                 <input type="text" name="selectDimm" size="20" class="selectDimm">
             </li>
+            <li style="margin-left:20px">'hideOnClick:
+                <select name="hideOnClick" class="hideOnClick">
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+            </li>
             <li>});</li>
 
             <div style="position: fixed; z-index: 100;">
@@ -79,6 +85,7 @@
                 'useDimm' : JSON.parse(document.querySelector('.useDimm').value),
                 'dimmCss' : document.querySelector('.dimmCss').value,
                 'selectDimm' : eval(document.querySelector('.selectDimm').value),
+                'hideOnClick' : JSON.parse(document.querySelector('.hideOnClick').value),
             });
         });
 

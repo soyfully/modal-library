@@ -19,6 +19,7 @@ export class EtribeModal {
         let setUseDimm = (opt.hasOwnProperty('useDimm') && opt.useDimm == false) ? false : true;
         let setDimmCss = (opt.hasOwnProperty('dimmCss') && opt.dimmCss) ? true : false;
         let setSelectDimm = (opt.hasOwnProperty('selectDimm') && opt.selectDimm) ? true : false;
+        let setHideOnClick = (opt.hasOwnProperty('hideOnClick') && opt.hideOnClick) ? true : false;
 
         this._center();
         window.addEventListener('resize', () => {
@@ -42,6 +43,10 @@ export class EtribeModal {
 
         if (setSelectDimm) {
             this._selectDimm(opt.selectDimm);
+        }
+
+        if (setHideOnClick) {
+            this._hideOnClick();
         }
     }
 
@@ -144,5 +149,16 @@ export class EtribeModal {
         if (_dimm) {
             _dimm.parentNode.removeChild(_dimm);
         } 
+    }
+
+    // hide modal after dimm click
+    protected _hideOnClick () {
+        let _dimm = <HTMLElement>document.querySelector('.etribe-modal-dimm');
+        let _userDimm = <HTMLElement>document.querySelector('.etribe-modal-dimm-user');
+        let _clickDimm = _dimm || _userDimm ;
+
+        _clickDimm.addEventListener('click', () => {
+            this.destroy();
+        })
     }
 }

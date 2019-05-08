@@ -4,4 +4,5 @@ interface iOpt {
     useDimm? : boolean;
     dimmCss?: string;
     selectDimm? : HTMLElement;
+    hideOnClick? : boolean;
 }
